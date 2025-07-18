@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萬鶴書院 HKDSE 2025屆畢業生優異成績展示</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .grade-5star { background-color: #ffd700; color: #000; }
+        .grade-5 { background-color: #ff6b6b; color: #fff; }
+        .grade-4 { background-color: #4ecdc4; color: #fff; }
+        .grade-3 { background-color: #45b7d1; color: #fff; }
+        .grade-2 { background-color: #96ceb4; color: #000; }
+        .grade-a { background-color: #6c5ce7; color: #fff; }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .university-tier {
+            border-left: 4px solid;
+            padding-left: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .tier-top3 { border-color: #ffd700; }
+        .tier-top5 { border-color: #ff6b6b; }
+        .tier-top8 { border-color: #4ecdc4; }
+        .tier-others { border-color: #96ceb4; }
+        
+        table {
+            font-size: 14px;
+        }
+        
+        .table-container {
+            max-height: none;
+            overflow: visible;
+        }
+        
+         {
+            body { background: white; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 mb-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">萬鶴書院 Wanhe Academy</h1>
+                <h2 class="text-2xl font-medium mb-4">HKDSE 2025屆畢業生優異成績展示</h2>
+                <p class="text-lg opacity-90">Outstanding Academic Achievement Report</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 pb-8">
+        <!-- Key Statistics Dashboard -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="stat-card bg-white rounded-lg p-6 card-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">港前三預估率</p>
+                        <p class="text-xs text-gray-500">Top 3 Universities</p>
+                        <p class="text-3xl font-bold text-yellow-600">45.5%</p>
+                        <p class="text-sm text-gray-500">10/22 學生</p>
+                    </div>
+                    <div class="bg-yellow-100 rounded-full p-3">
+                        <i class="fas fa-trophy text-yellow-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card bg-white rounded-lg p-6 card-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">英語及格率</p>
+                        <p class="text-xs text-gray-500">English Pass Rate</p>
+                        <p class="text-3xl font-bold text-blue-600">77.3%</p>
+                        <p class="text-sm text-gray-500">17/22 學生</p>
+                    </div>
+                    <div class="bg-blue-100 rounded-full p-3">
+                        <i class="fas fa-language text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card bg-white rounded-lg p-6 card-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">奪星總數</p>
+                        <p class="text-xs text-gray-500">Star Achievements</p>
+                        <p class="text-3xl font-bold text-red-600">20</p>
+                        <p class="text-sm text-gray-500">5** + 5* 等級</p>
+                    </div>
+                    <div class="bg-red-100 rounded-full p-3">
+                        <i class="fas fa-star text-red-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card bg-white rounded-lg p-6 card-shadow">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600">公社科通過率</p>
+                        <p class="text-xs text-gray-500">Liberal Studies</p>
+                        <p class="text-3xl font-bold text-green-600">100%</p>
+                        <p class="text-sm text-gray-500">全部達A級</p>
+                    </div>
+                    <div class="bg-green-100 rounded-full p-3">
+                        <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- University Admission Analysis -->
+        <div class="bg-white rounded-lg p-6 card-shadow mb-8">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-graduation-cap mr-2"></i>
+                升學前景分析 University Admission Analysis
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="chart-container">
+                    <canvas id="admissionChart"></canvas>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="university-tier tier-top3">
+                        <h4 class="font-bold text-lg text-gray-800">港前三大學 Top 3 Universities</h4>
+                        <p class="text-sm text-gray-600 mb-2">香港大學、中文大學、科技大學</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-yellow-600">45.5%</span>
+                            <span class="text-gray-600">10名學生</span>
+                        </div>
+                    </div>
+                    
+                    <div class="university-tier tier-top5">
+                        <h4 class="font-bold text-lg text-gray-800">港前五大學 Top 5 Universities</h4>
+                        <p class="text-sm text-gray-600 mb-2">城市大學、理工大學</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-red-600">27.3%</span>
+                            <span class="text-gray-600">6名學生</span>
+                        </div>
+                    </div>
+                    
+                    <div class="university-tier tier-top8">
+                        <h4 class="font-bold text-lg text-gray-800">港前八大學 Top 8 Universities</h4>
+                        <p class="text-sm text-gray-600 mb-2">浸會大學、嶺南大學、教育大學</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-teal-600">9.1%</span>
+                            <span class="text-gray-600">2名學生</span>
+                        </div>
+                    </div>
+                    
+                    <div class="university-tier tier-others">
+                        <h4 class="font-bold text-lg text-gray-800">其他選擇 Other Options</h4>
+                        <p class="text-sm text-gray-600 mb-2">副學位、海外升學、重考</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-600">18.2%</span>
+                            <span class="text-gray-600">4名學生</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subject Performance Analysis -->
+        <div class="bg-white rounded-lg p-6 card-shadow mb-8">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-chart-bar mr-2"></i>
+                各科目表現分析 Subject Performance Analysis
+            </h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="chart-container">
+                    <canvas id="subjectChart"></canvas>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-lg mb-3">核心科目平均分 Core Subjects Average</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>數學 Mathematics</span>
+                                <span class="font-bold text-blue-600">4.50</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>中文 Chinese</span>
+                                <span class="font-bold text-blue-600">3.95</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>英文 English</span>
+                                <span class="font-bold text-blue-600">2.82</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-lg mb-3">優秀率統計 Excellence Rate (≥5級)</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>數學 Mathematics</span>
+                                <span class="font-bold text-green-600">40.9%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>中文 Chinese</span>
+                                <span class="font-bold text-green-600">27.3%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>物理 Physics</span>
+                                <span class="font-bold text-green-600">23.1%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complete Grade Table -->
+        <div class="bg-white rounded-lg p-6 card-shadow mb-8">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-table mr-2"></i>
+                完整成績單 Complete Grade Report
+            </h3>
+            
+            <div class="table-container">
+                <table class="w-full table-auto border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border px-3 py-2 text-left">序號</th>
+                            <th class="border px-3 py-2 text-left">班別</th>
+                            <th class="border px-3 py-2 text-left">姓名</th>
+                            <th class="border px-3 py-2 text-center">中文</th>
+                            <th class="border px-3 py-2 text-center">英文</th>
+                            <th class="border px-3 py-2 text-center">數學</th>
+                            <th class="border px-3 py-2 text-center">公社</th>
+                            <th class="border px-3 py-2 text-center">物理</th>
+                            <th class="border px-3 py-2 text-center">化學</th>
+                            <th class="border px-3 py-2 text-center">生物</th>
+                            <th class="border px-3 py-2 text-center">M2</th>
+                            <th class="border px-3 py-2 text-center">經濟</th>
+                            <th class="border px-3 py-2 text-center">歷史</th>
+                            <th class="border px-3 py-2 text-center">BAFS</th>
+                            <th class="border px-3 py-2 text-center">Best 5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border px-3 py-2">1</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">李玄同</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">28</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">2</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">蔡卓芮</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">26</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">3</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">朱開誠</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">25</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">4</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">林彥希</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">Abs</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">22</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">5</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">綦化誠</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5**</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center font-bold">21</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">6</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">俞雅雯</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">21</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">7</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">杜文鐸</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">20.5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">8</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">郭君涵</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">Abs</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">20.5</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">9</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">洪貝詩</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">20.5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">10</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">周王子廷</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">20.5</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">11</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">施洛嶺</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">20</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">12</td>
+                            <td class="border px-3 py-2">A</td>
+                            <td class="border px-3 py-2 font-medium">駱思穎</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">19.5</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">13</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">陳雯玉</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">18.5</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">14</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">平子銘</td>
+                            <td class="border px-3 py-2 text-center grade-5star">5*</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">18.5</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">15</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">譚星瑤</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">18</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">16</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">汪凱恩</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-5">5</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">18</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">17</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">戴嘉鍇</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">17</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">18</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">劉嘉慧</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">17</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">19</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">黃佳琪</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">16</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">20</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">顧嘉桐</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center font-bold">15</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-3 py-2">21</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">劉博涵</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center grade-4">4</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">Abs</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">14</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="border px-3 py-2">22</td>
+                            <td class="border px-3 py-2">B</td>
+                            <td class="border px-3 py-2 font-medium">陳思琦</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-2">2</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-a">A</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center grade-3">3</td>
+                            <td class="border px-3 py-2 text-center">-</td>
+                            <td class="border px-3 py-2 text-center font-bold">14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Summary Statistics -->
+        <div class="bg-white rounded-lg p-6 card-shadow">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-chart-line mr-2"></i>
+                總結統計 Summary Statistics
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-2">Best 5 平均分</h4>
+                    <p class="text-3xl font-bold">19.5</p>
+                    <p class="text-sm opacity-90">全體學生平均表現</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-500 to-teal-600 text-white p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-2">A班平均分</h4>
+                    <p class="text-3xl font-bold">22.14</p>
+                    <p class="text-sm opacity-90">A班學生平均表現</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-2">B班平均分</h4>
+                    <p class="text-3xl font-bold">16.60</p>
+                    <p class="text-sm opacity-90">B班學生平均表現</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // University Admission Chart
+        const admissionCtx = document.getElementById('admissionChart').getContext('2d');
+        new Chart(admissionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['港前三 (45.5%)', '港前五 (27.3%)', '港前八 (9.1%)', '其他 (18.2%)'],
+                datasets: [{
+                    data: [45.5, 27.3, 9.1, 18.2],
+                    backgroundColor: ['#ffd700', '#ff6b6b', '#4ecdc4', '#96ceb4'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '升學前景分析 University Admission Analysis',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Subject Performance Chart
+        const subjectCtx = document.getElementById('subjectChart').getContext('2d');
+        new Chart(subjectCtx, {
+            type: 'bar',
+            data: {
+                labels: ['中文', '英文', '數學', '物理', '化學', '生物', 'M2', '經濟', '歷史', 'BAFS'],
+                datasets: [{
+                    label: '平均分',
+                    data: [3.95, 2.82, 4.50, 4.00, 3.57, 4.20, 3.86, 3.56, 3.60, 3.00],
+                    backgroundColor: [
+                        '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', 
+                        '#ff9ff3', '#54a0ff', '#5f27cd', '#00d2d3', '#ff6348'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: '各科目平均分 Subject Average Scores',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDqDcU%2F9IvmkiGoNIM9OQEdpPgmreQ54Av6vgIUPm0KTY457M%2F6Sztu78Y5wxz5BQhlhuh8t1nzJX50WCzMwjp%2BVdNrGRjcKOx30qvdNeJi42L3M96Q8rC6VQNquJMlDxT9u2C9bKB1xzE3gJY0IAnouZWKeYFNQ48E%2FwDbFeH0NggU5TDtHeu0bRf3OV36D7HV%2Fp5CifzjORB8ePLRimReJ124zFP47%2Bv%2BwhIwzgd0gNzCaWTAgwl6Z3Vxfh57yVaSA4pkPeIyRyWp3etTh1R3un4dtm3021h3b2yke8iy6mCENDy8q%2BW9wrypI0EgxrjO5u9UgC7DqbmOntrAJn4oXfu5H8whFO0%2BrYCWoQnK%2FAoQruvIkw9fETnBTIcMkBF58FXb6FGmELfKHe1T8p89OkYkQPkyZfgmuUurV%2Fp5OeqjbDC%2BOBICH6nXnoTlwI4QZTMSWmbmqMQKA16qRqtQwLvoWeUG1tp99bp%2BjvSh3z9yXqMsFvGQu7QJig4%2BMpF301Jh3lMxuIm9NRjwd6ddo%3D";
+        window.__genspark_locale = "zh-CN";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDqDcU/9IvmkiGoNIM9OQEdpPgmreQ54Av6vgIUPm0KTY457M/6Sztu78Y5wxz5BQhlhuh8t1nzJX50WCzMwjp+VdNrGRjcKOx30qvdNeJi42L3M96Q8rC6VQNquJMlDxT9u2C9bKB1xzE3gJY0IAnouZWKeYFNQ48E/wDbFeH0NggU5TDtHeu0bRf3OV36D7HV/p5CifzjORB8ePLRimReJ124zFP47+v+whIwzgd0gNzCaWTAgwl6Z3Vxfh57yVaSA4pkPeIyRyWp3etTh1R3un4dtm3021h3b2yke8iy6mCENDy8q+W9wrypI0EgxrjO5u9UgC7DqbmOntrAJn4oXfu5H8whFO0+rYCWoQnK/AoQruvIkw9fETnBTIcMkBF58FXb6FGmELfKHe1T8p89OkYkQPkyZfgmuUurV/p5OeqjbDC+OBICH6nXnoTlwI4QZTMSWmbmqMQKA16qRqtQwLvoWeUG1tp99bp+jvSh3z9yXqMsFvGQu7QJig4+MpF301Jh3lMxuIm9NRjwd6ddo=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
